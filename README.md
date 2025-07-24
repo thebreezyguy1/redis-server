@@ -41,7 +41,7 @@ This project was built to deeply understand how scalable real-time systems like 
 ---
 
 ## 📂 Project Structure
-
+```bash
 RedisLite/
 ├── src/
 │ ├── server/ # RedisServer.java — socket listener and client dispatcher
@@ -49,6 +49,8 @@ RedisLite/
 │ ├── core/ # RedisStore.java — thread-safe key-value store
 │ └── utils/ # CommandParser.java — command tokenizer
 └── README.md
+```
+
 
 
 ## ⚙️ How to Run
@@ -59,12 +61,18 @@ javac src/**/*.java
 ```
 
 ### 2. Run the Server
+```bash
 java -cp src server.RedisServer
+```
+
 
 ### 3. Run the Client
+```bash
 java -cp src client.RedisClient
+```
 
 ## Sample Interaction
+```bash
 > SET name Dorian
 OK
 > GET name
@@ -73,6 +81,8 @@ Dorian
 1
 > GET name
 (nil)
+```
+
 
 ## Author
 Dorian Taponzing Donfack
