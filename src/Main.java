@@ -1,15 +1,31 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import core.RedisStore;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        System.out.println("Starting Key-Value Store test...");
+        RedisStore store = new RedisStore();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // Test PUT operations
+        store.put("name", "Alice");
+        store.put("age", "30");
+        store.put("city", "New York");
+
+        // Test GET operations
+        System.out.println("Name: " + store.get("name"));
+        System.out.println("Age: " + store.get("age"));
+        System.out.println("City: " + store.get("city")); // Should be NULL
+
+        // Test DELETE operation
+        store.delete("age");
+        System.out.println("Age after delete: " + store.get("age")); // Should be NULL
+
+        // Test size
+        System.out.println("Current store size: " + store.size());
+
+        // Test clear
+        store.clear();
+        System.out.println("Current store size after clear: " + store.size());
+
+        System.out.println("Key-Value Store test finished.");
     }
 }
